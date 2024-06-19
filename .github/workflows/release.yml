@@ -76,7 +76,7 @@ jobs:
           go-version: '1.22'
 
       - name: Install Apko
-        tools: |
+        run: |
           go install chainguard.dev/apko@latest
           apko version
 
@@ -87,7 +87,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Apko Image
-        tools: |
+        run: |
           make tools-image
 
 
