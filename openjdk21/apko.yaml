@@ -1,5 +1,5 @@
 image:
-  name: apko-go
+  name: apko-jdk21
   version: 1.0.0
 
 contents:
@@ -10,13 +10,14 @@ contents:
 
   packages:
     - wolfi-base
-    - ca-certificates-bundle
-    - go-1.22
-    - curl
-    - wget
+    - openssl
+    - openjdk-21
+    - maven
 
 environment:
-  PATH: /usr/sbin:/sbin:/usr/bin:/bin:/root/go/bin
+  JAVA_HOME: /usr/lib/jvm/java-21-openjdk/
+  PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/jvm/java-21-openjdk/bin
+
 archs:
 - x86_64
 - arm64

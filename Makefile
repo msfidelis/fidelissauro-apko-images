@@ -26,6 +26,32 @@ push-go:
 	docker push fidelissauro/apko-go:latest-arm64
 	docker push fidelissauro/apko-go:latest-amd64
 
+jdk21-image: build-jdk21 push-jdk21 clean
+
+build-jdk21:
+	apko build openjdk21/apko.yaml apko-jdk21:latest apko-jdk21.tar
+	docker load -i apko-jdk21.tar
+
+	docker tag apko-jdk21:latest-arm64 fidelissauro/apko-jdk21:latest-arm64
+	docker tag apko-jdk21:latest-amd64 fidelissauro/apko-jdk21:latest-amd64
+
+push-jdk21:
+	docker push fidelissauro/apko-jdk21:latest-arm64
+	docker push fidelissauro/apko-jdk21:latest-amd64
+
+jdk17-image: build-jdk17 push-jdk17 clean
+
+build-jdk17:
+	apko build openjdk17/apko.yaml apko-jdk17:latest apko-jdk17.tar
+	docker load -i apko-jdk17.tar
+
+	docker tag apko-jdk17:latest-arm64 fidelissauro/apko-jdk17:latest-arm64
+	docker tag apko-jdk17:latest-amd64 fidelissauro/apko-jdk17:latest-amd64
+
+push-jdk17:
+	docker push fidelissauro/apko-jdk17:latest-arm64
+	docker push fidelissauro/apko-jdk17:latest-amd64
+
 tools-image: build-tools push-tools clean
 
 build-tools:
