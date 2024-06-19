@@ -26,6 +26,19 @@ push-go:
 	docker push fidelissauro/apko-go:latest-arm64
 	docker push fidelissauro/apko-go:latest-amd64
 
+tools-image: build-tools push-tools clean
+
+build-tools:
+	apko build tools/apko.yaml apko-tools:latest apko-tools.tar
+	docker load -i apko-tools.tar
+
+	docker tag apko-tools:latest-arm64 fidelissauro/apko-tools:latest-arm64
+	docker tag apko-tools:latest-amd64 fidelissauro/apko-tools:latest-amd64
+
+push-tools:
+	docker push fidelissauro/apko-tools:latest-arm64
+	docker push fidelissauro/apko-tools:latest-amd64
+
 clean:
 	rm *.tar
 	rm sbom-*

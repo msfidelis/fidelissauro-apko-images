@@ -7,10 +7,16 @@ contents:
     - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
   repositories:
     - https://packages.wolfi.dev/os
-  packages:
-    - go
-    - bash
 
+  packages:
+    - wolfi-base
+    - ca-certificates-bundle
+    - go-1.22
+    - curl
+    - wget
+
+environment:
+  PATH: /usr/sbin:/sbin:/usr/bin:/bin
 archs:
 - x86_64
 - arm64
