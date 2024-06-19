@@ -1,0 +1,16 @@
+image:
+  name: apko-go
+  version: 1.0.0
+
+contents:
+  keyring:
+    - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+  repositories:
+    - https://packages.wolfi.dev/os
+  packages:
+    - go
+    - bash
+
+archs:
+- x86_64
+- arm64
